@@ -1,1 +1,1 @@
-Just Simply use npm intall and then npm start to run the code.
+Just Simply use npm install and then npm start to run the code.
