@@ -1,0 +1,191 @@
+/* ==================================================
+   MUHAMMAD ABUBAKAR — INTERNEE INTRODUCTION
+   Design language: Engineering Blueprint / Technical Drawing
+   ================================================== */
+
+:root {
+  --blue-deep:   #0B2545;
+  --blue-mid:    #13315C;
+  --blue-line:   #8ECAE6;
+  --blue-line-dim: rgba(142, 202, 230, 0.35);
+  --paper:       #F7F4EA;
+  --paper-dim:   #EDE8D9;
+  --ink:         #1B2430;
+  --ink-soft:    #5B6B7F;
+  --accent:      #FF6B35;
+  --accent-dim:  rgba(255, 107, 53, 0.15);
+  --white:       #FFFFFF;
+
+  --ff-display: 'Space Grotesk', sans-serif;
+  --ff-body:    'Inter', sans-serif;
+  --ff-mono:    'JetBrains Mono', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--blue-deep);
+  color: var(--paper);
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: var(--ff-body); }
+img { max-width: 100%; display: block; }
+
+/* ---- Blueprint grid backdrop ---- */
+.blueprint-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--blue-line-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blue-line-dim) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.blueprint-grid--fine {
+  background-size: 8px 8px;
+  opacity: 0.06;
+}
+
+/* ---- Utility ---- */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-line);
+  margin-bottom: 18px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.section-title span { color: var(--accent); }
+
+.section-sub {
+  margin-top: 16px;
+  font-size: 16px;
+  color: var(--blue-line);
+  max-width: 580px;
+  line-height: 1.75;
+}
+
+/* ---- Part-number tag (dimension-line style label) ---- */
+.part-tag {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+/* ---- Buttons ---- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: var(--blue-deep);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 26px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  font-family: var(--ff-body);
+}
+
+.btn-primary:hover {
+  background: #ff8257;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(255, 107, 53, 0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--paper);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13px 24px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--blue-line-dim);
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  border-color: var(--blue-line);
+  background: rgba(142, 202, 230, 0.08);
+}
+
+/* ---- Fade-in on scroll ---- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fade-in-delay-1 { transition-delay: 0.08s; }
+.fade-in-delay-2 { transition-delay: 0.16s; }
+.fade-in-delay-3 { transition-delay: 0.24s; }
+.fade-in-delay-4 { transition-delay: 0.32s; }
+.fade-in-delay-5 { transition-delay: 0.4s; }
+.fade-in-delay-6 { transition-delay: 0.48s; }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--blue-deep); }
+::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--blue-line); }
+
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .container { padding: 0 18px; }
+}
